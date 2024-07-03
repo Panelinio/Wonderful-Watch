@@ -6,7 +6,6 @@ Simple design for website with watch.
 * [Setup](#setup)
 * [Features](#features)
 * [Sources](#sources)
-* [Devlog](#devlog)
 	
 ## Technologies
 Project is created with:
@@ -17,6 +16,9 @@ Project is created with:
 ## Setup
 To run this project, clone repo and click index.html file.
 Test app in my [codepen](https://codepen.io/Panelinio/pen/RwmXvOj)
+
+## Features
+* Hover watch to change it's look.
 
 ## Sources
 What helped me:
