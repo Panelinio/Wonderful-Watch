@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: #171717;
+    font-family: "Nova Mono", monospace;
+    font-weight: 600;
+    color: #F2F2F2;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main
+{
+    -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.15));
+    position: relative;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100vw;
+    height: 50vh;
+}
+
+.behind
+{
+    position: absolute;
+    z-index: -1;
+    font-size: 11em;
+    letter-spacing: -1.5rem;
+    padding: 20px;
+    border-radius: 80px;
+}
+
+article
+{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: #171717;
+    border: 3px solid #C70039;
+    box-shadow: 0 0 60px rgba(199, 0, 57, 0.9);
+    transition: all 0.2s ease-out 0.5ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+article p
+{
+    position: absolute;
+    transform: rotate(calc(30deg * var(--i)));
+    inset: 12px;
+    text-align: center;
+}
+
+article p b
+{
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+}
+
+article::before
+{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+article:hover
+{
+    box-shadow: 0 0 0px rgba(199, 0, 57, 1);
+    background-color: #C70039;
+    color: #171717;
+}
+
+.hand
+{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.hand i
+{
+    position: absolute;
+    background-color: currentColor;
+    width: 5px;
+    height: var(--h);
+    border-radius: 12px;
+}
+
+.text
+{
+    position: absolute;
+    top: 200px;
+}
