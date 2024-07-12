@@ -18,6 +18,7 @@ body
     align-items: center;
     justify-content: center;
     container: main / inline-size;
+    transition: all 0.2s ease-out 0.5ms;
 }
 
 main

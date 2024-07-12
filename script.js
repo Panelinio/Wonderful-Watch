@@ -20,3 +20,19 @@ function time()
 }
 
 setInterval(time, 1);
+
+let arrow_l = document.getElementById('arrow_l')
+let arrow_r = document.getElementById('arrow_r')
+let text = document.getElementById('text')
+
+arrow_l.addEventListener('click',function()
+{
+    document.body.style.background = '#171717';
+    text.style.color = '#F2F2F2';
+});
+
+arrow_r.addEventListener('click',function()
+{
+    document.body.style.background =  '#F2F2F2';
+    text.style.color = '#171717';
+});
