@@ -17,6 +17,7 @@ body
     display: flex;
     align-items: center;
     justify-content: center;
+    container: main / inline-size;
 }
 
 main
@@ -36,13 +37,59 @@ main
 {
     position: absolute;
     z-index: -1;
-    font-size: 11em;
+    font-size: 10.5em;
     letter-spacing: -1.5rem;
     padding: 20px;
     border-radius: 80px;
 }
 
-article
+
+.arrow_r 
+{
+    --r:10px;
+    width: 75px;
+    aspect-ratio: 1/2;
+    --_g:calc(var(--r)/tan(22.5deg)) left var(--r),#000 98%,#0000 101%;
+    -webkit-mask:
+      conic-gradient(from 67.5deg at calc(var(--r)/(3*sqrt(2) - 4) - 100%/tan(22.5deg)) 50%,#000 45deg,#0000 0)
+       0 0/calc(100% - var(--r)/sqrt(2)) no-repeat,
+      radial-gradient(var(--r) at calc(100% - var(--r)*sqrt(2)) 50%,#000 98%,#0000 101%),
+      radial-gradient(var(--r) at top    var(--_g)),
+      radial-gradient(var(--r) at bottom var(--_g));
+    clip-path: polygon(100% 50%,0 100%,0 0);
+    background:#c7003828;
+    transition: all 0.2s ease-out 0.5ms;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
+
+.arrow_l 
+{
+    --r:10px;
+    width: 75px;
+    aspect-ratio: 1/2;
+    --_g:calc(var(--r)/tan(22.5deg)) right var(--r),#000 98%,#0000 101%;
+    -webkit-mask:
+      conic-gradient(from 247.5deg at calc(100% + 100%/tan(22.5deg) - var(--r)/(3*sqrt(2) - 4)) 50%,#000 45deg,#0000 0)
+       100% 0/calc(100% - var(--r)/sqrt(2)) no-repeat,
+      radial-gradient(var(--r) at calc(var(--r)*sqrt(2)) 50%,#000 98%,#0000 101%),
+      radial-gradient(var(--r) at top    var(--_g)),
+      radial-gradient(var(--r) at bottom var(--_g));
+    clip-path: polygon(0 50%,100% 100%,100% 0);
+    background:#c7003828;
+    cursor: pointer;
+    transition: all 0.2s ease-out 0.5ms;
+    position: absolute;
+    left: 0;
+}
+
+.arrow_l:hover, .arrow_r:hover
+{
+    background: #C70039;
+}
+
+.clock
 {
     width: 400px;
     height: 400px;
@@ -58,7 +105,7 @@ article
     z-index: 1;
 }
 
-article p
+.clock p
 {
     position: absolute;
     transform: rotate(calc(30deg * var(--i)));
@@ -66,13 +113,13 @@ article p
     text-align: center;
 }
 
-article p b
+.clock p b
 {
     display: inline-block;
     transform: rotate(calc(-30deg * var(--i)));
 }
 
-article::before
+.clock::before
 {
     content: '';
     position: absolute;
@@ -82,7 +129,7 @@ article::before
     background-color: currentColor;
 }
 
-article:hover
+.clock:hover
 {
     box-shadow: 0 0 0px rgba(199, 0, 57, 1);
     background-color: #C70039;
@@ -106,8 +153,75 @@ article:hover
     border-radius: 12px;
 }
 
+#hour
+{
+    --h: 140px; 
+}
+#min
+{
+    --h: 120px; 
+}
+#sec
+{
+   --h: 100px; 
+}
+
 .text
 {
     position: absolute;
-    top: 200px;
+    top: 220px;
+    font-size: 20px;
+}
+
+@container main (max-width: 768px)
+{
+    main
+    {
+        -webkit-box-reflect: below -160px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.15));
+    }
+    .clock
+    {
+        width: 250px;
+        height: 250px;
+    }
+    .clock p
+    {
+        inset: 2px;
+    }
+    .clock p b
+    {
+        font-size: 20px;
+    }
+    .behind
+    {
+        font-size: 2.9em;
+        letter-spacing: -0.2rem;
+    }
+    .text
+    {
+        top: 160px;
+        font-size: 15px;
+    }
+
+    .arrow_l, .arrow_r
+    {
+        width: 25px;
+        --r:4px;
+    }
+    #hour
+    {
+        --h: 80px; 
+    }
+    #min
+    {
+        --h: 60px; 
+    }
+    #sec
+    {
+       --h: 40px; 
+    }
+    .hand i
+    {
+        width: 3px;
+    }
 }
